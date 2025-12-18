@@ -1,0 +1,77 @@
+import { Project, Experience, Skill } from './types';
+
+export const PORTFOLIO_DATA = {
+  name: "ARYAMAN V. GUPTA",
+  title: "Senior Creative Technologist",
+  bio: "Engineering the invisible. I build digital experiences that feel physical, blending high-performance code with cinematic aesthetics. Based in San Francisco, working globally.",
+  
+  about: {
+    heading: "The Narrative",
+    paragraphs: [
+      "I believe that the best digital experiences are those that disappear. When performance meets precision, the interface dissolves, leaving only the intent. My work explores this boundary—crafting interactions that feel inevitable rather than designed.",
+      "With a foundation in computer science and a passion for fine arts, I navigate the space between logic and emotion. From optimizing low-level render loops to defining motion languages for global brands, I bring a holistic perspective to every project."
+    ],
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"
+  },
+
+  projects: [
+    {
+      id: "p1",
+      title: "VOID ENGINE",
+      category: "WebGL Core",
+      description: "A high-performance rendering engine for browser-based volumetric lighting. Reduced render times by 40% while increasing visual fidelity.",
+      tech: ["WebGL", "GLSL", "Rust", "WASM"],
+      year: "2024"
+    },
+    {
+      id: "p2",
+      title: "NEURAL SCAPE",
+      category: "Generative AI",
+      description: "Real-time landscape generation interface allowing users to sculpt terrain using voice commands and hand gestures via webcam.",
+      tech: ["TensorFlow.js", "Three.js", "React", "WebRTC"],
+      year: "2023"
+    },
+    {
+      id: "p3",
+      title: "AETHER FINANCE",
+      category: "Fintech UI",
+      description: "Complete design system and frontend architecture for a next-gen algorithmic trading platform. 60fps data visualization for millions of data points.",
+      tech: ["D3.js", "React", "TypeScript", "WebSocket"],
+      year: "2023"
+    },
+    {
+      id: "p4",
+      title: "CHRONOS",
+      category: "Experimental",
+      description: "An interactive exploration of non-linear time perception, awarded Site of the Day on Awwwards.",
+      tech: ["React Three Fiber", "GSAP", "Next.js"],
+      year: "2022"
+    }
+  ] as Project[],
+
+  experience: [
+    {
+      id: "e1",
+      role: "Lead Frontend Engineer",
+      company: "Stark Industries (Tech Div)",
+      period: "2022 — Present",
+      description: "Leading a team of 8 engineers building the next generation of holographic interfaces. Specialized in React performance and shader optimization."
+    },
+    {
+      id: "e2",
+      role: "Creative Developer",
+      company: "Massive Dynamic",
+      period: "2019 — 2022",
+      description: "Bridged the gap between design and engineering. Implemented complex motion systems and micro-interactions for global campaigns."
+    }
+  ] as Experience[],
+
+  contact: {
+    email: "aryaman@example.dev",
+    social: [
+      { name: "GitHub", url: "#" },
+      { name: "Twitter", url: "#" },
+      { name: "LinkedIn", url: "#" }
+    ]
+  }
+};
