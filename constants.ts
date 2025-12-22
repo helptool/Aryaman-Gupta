@@ -2,8 +2,8 @@ import { Project, Experience, Skill } from './types';
 
 export const PORTFOLIO_DATA = {
   name: "ARYAMAN V. GUPTA",
-  title: "Senior Creative Technologist",
-  bio: "Engineering the invisible. I build digital experiences that feel physical, blending high-performance code with cinematic aesthetics. Based in San Francisco, working globally.",
+  title: "Senior Software Engineer",
+  bio: "Engineering the invisible. I build digital experiences that feel physical, blending high-performance code with cinematic aesthetics. Based in Chhattisgarh (India), working globally.",
   
   about: {
     heading: "The Narrative",
@@ -11,7 +11,7 @@ export const PORTFOLIO_DATA = {
       "I believe that the best digital experiences are those that disappear. When performance meets precision, the interface dissolves, leaving only the intent. My work explores this boundary—crafting interactions that feel inevitable rather than designed.",
       "With a foundation in computer science and a passion for fine arts, I navigate the space between logic and emotion. From optimizing low-level render loops to defining motion languages for global brands, I bring a holistic perspective to every project."
     ],
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"
+    image: "https://images.unsplash.com/photo-1766423936525-2ce5c6cec5d7?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
 
   projects: [
@@ -67,7 +67,7 @@ export const PORTFOLIO_DATA = {
   ] as Experience[],
 
   contact: {
-    email: "aryaman@example.dev",
+    email: "aryamanvg@gmail.com",
     social: [
       { name: "GitHub", url: "#" },
       { name: "Twitter", url: "#" },
