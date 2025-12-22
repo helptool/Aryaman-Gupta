@@ -69,9 +69,9 @@ export const PORTFOLIO_DATA = {
   contact: {
     email: "aryamanvg@gmail.com",
     social: [
-      { name: "GitHub", url: "#" },
-      { name: "Twitter", url: "#" },
-      { name: "LinkedIn", url: "#" }
+      { name: "GitHub", url: "https://github.com/helptool" },
+      { name: "Instagram", url: "https://www.instagram.com/avgec/" },
+      { name: "LinkedIn", url: "https://www.linkedin.com/in/aryaman-v-gupta/" }
     ]
   }
 };

@@ -1,12 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring, AnimatePresence, Variants } from 'framer-motion';
-import { Github, Twitter, Linkedin, Mail, ArrowUpRight, Globe } from 'lucide-react';
+import { Github, Instagram, Linkedin, Mail, ArrowUpRight, Globe } from 'lucide-react';
 import FluidBackground from './components/FluidBackground';
 import ReflectiveText from './components/ReflectiveText';
 import CustomCursor from './components/CustomCursor';
 import { PORTFOLIO_DATA } from './constants';
 
-const EASE_HEAVY = [0.22, 1, 0.36, 1];
+const EASE_HEAVY = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 40 }, 
@@ -99,6 +99,9 @@ const App: React.FC = () => {
   const firstLine = nameParts.slice(0, -1).join(' '); 
   const secondLine = nameParts[nameParts.length - 1];
 
+  // Helper to find social links
+  const getSocialUrl = (name: string) => PORTFOLIO_DATA.contact.social.find(s => s.name.toLowerCase() === name.toLowerCase())?.url || "#";
+
   return (
     <div className="relative min-h-screen font-sans text-accent overflow-hidden selection:bg-accent selection:text-background">
       <FluidBackground />
@@ -180,16 +183,10 @@ const App: React.FC = () => {
         </motion.section>
 
         {/* ABOUT SECTION */}
-        <section className="py-24 md:py-32 border-t border-white/5">
-          <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-center">
-            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 1.2, ease: EASE_HEAVY }} className="relative">
-                <div className="aspect-[3/4] md:aspect-[4/5] overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-700 bg-surface border border-white/5">
-                     <img src={PORTFOLIO_DATA.about.image} alt="Portrait" className="w-full h-full object-cover opacity-80" />
-                     <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-50" />
-                </div>
-                <div className="absolute -bottom-4 -right-4 w-12 h-12 md:w-24 md:h-24 border-r border-b border-white/10" />
-            </motion.div>
-            <div>
+        <section className="py-24 md:py-48 border-t border-white/5">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-[1.1fr_0.9fr] gap-12 md:gap-32 items-center">
+            {/* TEXT ON THE LEFT */}
+            <div className="order-2 md:order-1">
                 <RevealTitle className="mb-8 md:mb-12"><ReflectiveText as="h2" className="text-3xl md:text-5xl font-display font-bold">{PORTFOLIO_DATA.about.heading}</ReflectiveText></RevealTitle>
                 <div className="space-y-6 md:space-y-8">
                     {PORTFOLIO_DATA.about.paragraphs.map((para, idx) => (
@@ -198,9 +195,26 @@ const App: React.FC = () => {
                 </div>
                 <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.5, duration: 1 }} className="mt-12 pt-8 border-t border-white/5 flex gap-8">
                      <div className="flex flex-col"><span className="text-[10px] md:text-xs font-mono uppercase text-accent/50 tracking-widest mb-1">Status</span><span className="text-sm text-accent">Available for new ventures</span></div>
-                     <div className="flex flex-col"><span className="text-[10px] md:text-xs font-mono uppercase text-accent/50 tracking-widest mb-1">Location</span><span className="text-sm text-accent">San Francisco, CA</span></div>
+                     <div className="flex flex-col"><span className="text-[10px] md:text-xs font-mono uppercase text-accent/50 tracking-widest mb-1">Location</span><span className="text-sm text-accent">Chhattisgarh, India</span></div>
                 </motion.div>
             </div>
+
+            {/* IMAGE ON THE RIGHT */}
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }} 
+              whileInView={{ opacity: 1, x: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 1.2, ease: EASE_HEAVY }} 
+              className="relative max-w-sm mx-auto md:mx-0 order-1 md:order-2"
+            >
+                <div className="aspect-[3/4] md:aspect-[4/5] overflow-hidden relative grayscale hover:grayscale-0 transition-all duration-700 bg-surface border border-white/5 shadow-2xl">
+                     <img src={PORTFOLIO_DATA.about.image} alt="Portrait" className="w-full h-full object-cover opacity-80" />
+                     <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-50" />
+                </div>
+                {/* Symmetric HUD Accents */}
+                <div className="absolute -top-4 -left-4 w-12 h-12 md:w-16 md:h-16 border-l border-t border-accent/20" />
+                <div className="absolute -bottom-4 -right-4 w-12 h-12 md:w-16 md:h-16 border-r border-b border-accent/20" />
+            </motion.div>
           </div>
         </section>
 
@@ -259,9 +273,9 @@ const App: React.FC = () => {
           </motion.a>
 
           <motion.div className="flex gap-8 md:gap-10 mb-16" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1.2, delay: 0.4 }}>
-            <SocialLink icon={<Github size={20} />} label="Github" />
-            <SocialLink icon={<Twitter size={20} />} label="Twitter" />
-            <SocialLink icon={<Linkedin size={20} />} label="LinkedIn" />
+            <SocialLink icon={<Github size={20} />} label="Github" href={getSocialUrl('github')} />
+            <SocialLink icon={<Instagram size={20} />} label="Instagram" href={getSocialUrl('instagram')} />
+            <SocialLink icon={<Linkedin size={20} />} label="LinkedIn" href={getSocialUrl('linkedin')} />
           </motion.div>
 
           <p className="text-secondary/40 text-[9px] md:text-[10px] font-mono uppercase tracking-[0.4em] px-4">
@@ -277,7 +291,7 @@ const App: React.FC = () => {
 
 const RevealTitle: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = "" }) => (
   <div className={`overflow-hidden ${className}`}>
-    <motion.div initial={{ y: "110%" }} whileInView={{ y: 0 }} viewport={{ once: true, margin: "-10%" }} transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}>{children}</motion.div>
+    <motion.div initial={{ y: "110%" }} whileInView={{ y: 0 }} viewport={{ once: true, margin: "-10%" }} transition={{ duration: 1.2, ease: EASE_HEAVY }}>{children}</motion.div>
   </div>
 );
 
@@ -303,8 +317,16 @@ const ProjectCard: React.FC<{ project: any; index: number }> = ({ project, index
   );
 };
 
-const SocialLink: React.FC<{ icon: React.ReactNode; label: string }> = ({ icon, label }) => (
-  <motion.a href="#" className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full border border-white/10 text-secondary relative overflow-hidden group interactive" aria-label={label} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+const SocialLink: React.FC<{ icon: React.ReactNode; label: string; href: string }> = ({ icon, label, href }) => (
+  <motion.a 
+    href={href} 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full border border-white/10 text-secondary relative overflow-hidden group interactive" 
+    aria-label={label} 
+    whileHover={{ scale: 1.1 }} 
+    whileTap={{ scale: 0.9 }}
+  >
      <div className="absolute inset-0 bg-accent transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom ease-out" />
      <div className="relative z-10 group-hover:text-background transition-colors duration-300">{icon}</div>
   </motion.a>
